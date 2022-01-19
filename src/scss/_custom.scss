@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+
+//Theme Colours
+$purple: #9100ff;
+$pink: #f700ff;
+$orange: #ff7700;
+$heading-color: #3d006b;
+
+//Colour Overrides
+$primary: $purple;
+$secondary: $pink;
+
+//Theme Fonts
+$primary-font: "Quicksand", sans-serif;
+
+//Font Overrides
+$font-family-sans-serif: $primary-font;
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

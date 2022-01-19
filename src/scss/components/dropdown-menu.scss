@@ -1,0 +1,58 @@
+@use "../custom" as *;
+
+.nav-dropdown {
+  .nav-link {
+    border: none;
+    background-color: $primary;
+
+    @include media-breakpoint-up(md) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+
+    @include media-breakpoint-up(md) {
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+      margin: 0 10px;
+      background-color: $primary;
+      max-height: initial;
+      overflow-y: initial;
+
+      .mega-menu {
+        margin: 10px;
+      }
+    }
+
+    ul {
+      padding: 0;
+      width: 100%;
+      li {
+        list-style: none;
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+          width: 50%;
+        }
+
+        @include media-breakpoint-up(md) {
+          width: auto;
+
+          button {
+            color: white;
+
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

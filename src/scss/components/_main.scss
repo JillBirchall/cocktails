@@ -1,0 +1,12 @@
+@use "../custom" as *;
+
+.main-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding-bottom: 70px;
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 50px;
+  }
+}

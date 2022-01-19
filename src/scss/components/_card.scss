@@ -1,0 +1,36 @@
+@use "../custom" as *;
+
+.cocktail-card {
+  width: 250px;
+  height: 320px;
+  transition: transform 0.2s ease-in;
+
+  img {
+    width: 250px;
+    height: auto;
+  }
+
+  h2 {
+    color: $heading-color;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+  }
+
+  &:focus {
+    outline-color: $primary;
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+  }
+}

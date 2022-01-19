@@ -1,0 +1,43 @@
+@use "../custom" as *;
+
+.cocktail-recipe {
+  .back-btn {
+    @include media-breakpoint-up(sm) {
+      height: 40px;
+      width: 200px;
+      text-align: center;
+    }
+  }
+
+  img {
+    width: 200px;
+    height: auto;
+
+    @include media-breakpoint-up(md) {
+      height: 400px;
+      width: auto;
+      border-radius: 30px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      -o-border-radius: 30px;
+    }
+  }
+
+  h3 {
+    color: $heading-color;
+    font-weight: 700;
+  }
+
+  ul {
+    padding-left: 0;
+
+    li {
+      list-style-type: none;
+
+      .icon {
+        color: $secondary;
+      }
+    }
+  }
+}
