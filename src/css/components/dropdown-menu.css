@@ -11123,7 +11123,7 @@ textarea.form-control-lg {
   border: none;
   background-color: #9100ff;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .nav-dropdown .nav-link {
     font-size: 1.2rem;
   }
@@ -11132,7 +11132,7 @@ textarea.form-control-lg {
   max-height: 300px;
   overflow-y: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .nav-dropdown .dropdown-menu {
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -11161,7 +11161,7 @@ textarea.form-control-lg {
     width: 50%;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .nav-dropdown .dropdown-menu ul li {
     width: auto;
   }

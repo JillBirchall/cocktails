@@ -8,11 +8,12 @@ export const NavBar: React.FC = () => {
   const { ingredients, categories } = useGlobalContext();
 
   return (
-    <nav className="navbar sticky-top navbar-expand-md navbar-light bg-primary">
+    <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
         <div className="navbar-brand">
           <img src={cocktail} alt="cocktail" className="m-0" />
         </div>
+        <p className="my-auto text-white fw-bold">Cocktail Recipes</p>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,7 +26,7 @@ export const NavBar: React.FC = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <DropdownMenu
               title="Categories"
               menuName="category"
