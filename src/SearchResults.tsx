@@ -1,12 +1,22 @@
 import { CocktailCard } from "./CocktailCard";
+import { BackToTopBtn } from "./BackToTopBtn";
 import { useGlobalContext } from "./context";
+import { useEffect, useRef } from "react";
 
 export const SearchResults: React.FC = () => {
-  const { cocktails, currentSearch } = useGlobalContext();
+  const { cocktails, currentSearch, backToTop } = useGlobalContext();
+  const searchResultsRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    searchResultsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, []);
 
   return (
-    <div className="container py-5">
-      <h1 className="text-center text-uppercase my-4">
+    <div className="container py-5 cocktail-results">
+      <h1 className="text-center text-uppercase my-4" ref={searchResultsRef}>
         {currentSearch ? currentSearch + " cocktails" : "Cocktails"}
       </h1>
       {cocktails.length === 0 && (
@@ -24,6 +34,7 @@ export const SearchResults: React.FC = () => {
           );
         })}
       </div>
+      <BackToTopBtn />
     </div>
   );
 };

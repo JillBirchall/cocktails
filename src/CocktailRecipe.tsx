@@ -1,25 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowLeft, Dot } from "react-bootstrap-icons";
+import { BackToTopBtn } from "./BackToTopBtn";
 import { useGlobalContext } from "./context";
 
 export const CocktailRecipe: React.FC = () => {
-  const { currentCocktail, backToResults } = useGlobalContext();
+  const { currentCocktail, backToResults, isRandomCocktail } =
+    useGlobalContext();
+  const cocktailRecipeRef = useRef<HTMLDivElement>(null);
 
-  //Scroll page back to top
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    cocktailRecipeRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, [currentCocktail]);
 
   return (
-    <article className="container-fluid cocktail-recipe pt-4 pt-md-3">
+    <article
+      className="container-fluid cocktail-recipe pt-4 pt-md-3 pb-5"
+      ref={cocktailRecipeRef}
+    >
       <div className="row">
         <div className="col-12">
-          <button
-            className="back-btn btn btn-outline-primary rounded-pill ms-md-3"
-            onClick={backToResults}
-          >
-            <ArrowLeft /> Back To Results
-          </button>
+          {!isRandomCocktail && (
+            <button
+              className="back-btn btn btn-outline-primary rounded-pill ms-md-3"
+              onClick={backToResults}
+            >
+              <ArrowLeft /> Back To Results
+            </button>
+          )}
         </div>
       </div>
       <div className="row">
@@ -55,6 +65,7 @@ export const CocktailRecipe: React.FC = () => {
           <p>{currentCocktail!.method}</p>
         </div>
       </section>
+      {isRandomCocktail && <BackToTopBtn />}
     </article>
   );
 };

@@ -1,5 +1,6 @@
 import { SearchResults } from "./SearchResults";
 import { NavBar } from "./NavBar";
+import { Home } from "./Home";
 import { CocktailRecipe } from "./CocktailRecipe";
 import { ErrorPage } from "./ErrorPage";
 import { Loader } from "./Loader";
@@ -12,7 +13,8 @@ function App() {
 
   return (
     <div className="main-container">
-      <NavBar />
+      <Home />
+      {/* <NavBar /> */}
       {isLoading && <Loader />}
       {showResults && <SearchResults />}
       {isError && <ErrorPage />}

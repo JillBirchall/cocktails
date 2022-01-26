@@ -1,6 +1,7 @@
 @use "../custom" as *;
 
 .cocktail-recipe {
+  height: 100vh;
   .back-btn {
     @include media-breakpoint-up(sm) {
       height: 40px;

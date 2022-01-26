@@ -1,10 +1,16 @@
 @use "../custom" as *;
 
 .search-box {
-  width: 250px;
-
+  p {
+    font-size: 24px;
+  }
   input {
     border: none;
+    width: 200px;
+
+    @include media-breakpoint-up(md) {
+      width: 250px;
+    }
   }
 
   .search-btn {

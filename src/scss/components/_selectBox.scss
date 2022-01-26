@@ -1,0 +1,18 @@
+@use "../custom" as *;
+
+.select-box {
+  label {
+    font-size: 16px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 24px;
+    }
+  }
+  select {
+    width: 200px;
+
+    @include media-breakpoint-up(md) {
+      width: 250px;
+    }
+  }
+}

@@ -70,6 +70,7 @@ type CocktailInfo = {
 };
 
 interface IAppContext {
+  isRandomCocktail: boolean;
   isError: boolean;
   isLoading: boolean;
   cocktails: Cocktail[];
@@ -81,7 +82,9 @@ interface IAppContext {
   currentSearch: string;
   getCocktails(searchQuery: string, searchType: string): void;
   getCocktailRecipe(cocktailId: number): void;
+  getRandomCocktail(): void;
   backToResults(): void;
+  backToTop(): void;
 }
 
 export const AppContext = React.createContext<IAppContext>({} as IAppContext);
@@ -89,6 +92,7 @@ export const AppContext = React.createContext<IAppContext>({} as IAppContext);
 export const AppProvider: React.FC = ({ children }) => {
   const [showResults, setShowResults] = useState(false);
   const [displayCocktail, setDisplayCocktail] = useState(false);
+  const [isRandomCocktail, setIsRandomCocktail] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [cocktails, setCocktails] = useState<Cocktail[]>([]);
@@ -158,58 +162,62 @@ export const AppProvider: React.FC = ({ children }) => {
       )
       .then((res) => {
         let currentDrink: CocktailDetails = res.data.drinks[0];
-
-        let tempIngredients: string[] = [
-          currentDrink.strIngredient1,
-          currentDrink.strIngredient2,
-          currentDrink.strIngredient3,
-          currentDrink.strIngredient4,
-          currentDrink.strIngredient5,
-          currentDrink.strIngredient6,
-          currentDrink.strIngredient7,
-          currentDrink.strIngredient8,
-          currentDrink.strIngredient9,
-          currentDrink.strIngredient10,
-          currentDrink.strIngredient11,
-          currentDrink.strIngredient12,
-          currentDrink.strIngredient13,
-          currentDrink.strIngredient14,
-          currentDrink.strIngredient15,
-        ];
-
-        let tempMeasures: string[] = [
-          currentDrink.strMeasure1,
-          currentDrink.strMeasure2,
-          currentDrink.strMeasure3,
-          currentDrink.strMeasure4,
-          currentDrink.strMeasure5,
-          currentDrink.strMeasure6,
-          currentDrink.strMeasure7,
-          currentDrink.strMeasure8,
-          currentDrink.strMeasure9,
-          currentDrink.strMeasure10,
-          currentDrink.strMeasure11,
-          currentDrink.strMeasure12,
-          currentDrink.strMeasure13,
-          currentDrink.strMeasure14,
-          currentDrink.strMeasure15,
-        ];
-
-        setCurrentCocktail({
-          id: currentDrink.idDrink,
-          name: currentDrink.strDrink,
-          category: currentDrink.strCategory,
-          glass: currentDrink.strGlass,
-          alcoholic: currentDrink.strAlcoholic,
-          image: currentDrink.strDrinkThumb,
-          method: currentDrink.strInstructions,
-          ingredients: formatIngredients(tempIngredients, tempMeasures),
-        });
+        formatCocktaiRecipe(currentDrink);
         setShowResults(false);
         setDisplayCocktail(true);
+        setIsRandomCocktail(false);
         setIsLoading(false);
       })
       .catch((error) => setIsError(true));
+  };
+
+  const formatCocktaiRecipe = (currentDrink: CocktailDetails) => {
+    let tempIngredients: string[] = [
+      currentDrink.strIngredient1,
+      currentDrink.strIngredient2,
+      currentDrink.strIngredient3,
+      currentDrink.strIngredient4,
+      currentDrink.strIngredient5,
+      currentDrink.strIngredient6,
+      currentDrink.strIngredient7,
+      currentDrink.strIngredient8,
+      currentDrink.strIngredient9,
+      currentDrink.strIngredient10,
+      currentDrink.strIngredient11,
+      currentDrink.strIngredient12,
+      currentDrink.strIngredient13,
+      currentDrink.strIngredient14,
+      currentDrink.strIngredient15,
+    ];
+
+    let tempMeasures: string[] = [
+      currentDrink.strMeasure1,
+      currentDrink.strMeasure2,
+      currentDrink.strMeasure3,
+      currentDrink.strMeasure4,
+      currentDrink.strMeasure5,
+      currentDrink.strMeasure6,
+      currentDrink.strMeasure7,
+      currentDrink.strMeasure8,
+      currentDrink.strMeasure9,
+      currentDrink.strMeasure10,
+      currentDrink.strMeasure11,
+      currentDrink.strMeasure12,
+      currentDrink.strMeasure13,
+      currentDrink.strMeasure14,
+      currentDrink.strMeasure15,
+    ];
+
+    setCurrentCocktail({
+      id: currentDrink.idDrink,
+      name: currentDrink.strDrink,
+      category: currentDrink.strCategory,
+      glass: currentDrink.strGlass,
+      alcoholic: currentDrink.strAlcoholic,
+      image: currentDrink.strDrinkThumb,
+      method: currentDrink.strInstructions,
+      ingredients: formatIngredients(tempIngredients, tempMeasures),
+    });
   };
 
   const formatIngredients = (
@@ -233,9 +241,28 @@ export const AppProvider: React.FC = ({ children }) => {
     return formattedIngredients;
   };
 
+  const getRandomCocktail = () => {
+    setIsLoading(true);
+    setIsRandomCocktail(true);
+    axios
+      .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+      .then((res) => {
+        let currentDrink: CocktailDetails = res.data.drinks[0];
+        formatCocktaiRecipe(currentDrink);
+        setShowResults(false);
+        setDisplayCocktail(true);
+        setIsLoading(false);
+      })
+      .catch((error) => setIsError(true));
+  };
+
   const backToResults = () => {
     setDisplayCocktail(false);
     setShowResults(true);
+  };
+
+  const backToTop = () => {
+    window.scrollTo(0, 0);
   };
 
   //Utility function to convert first letter to uppercase.
@@ -265,13 +292,12 @@ export const AppProvider: React.FC = ({ children }) => {
         setIngredients(newIngredients.sort());
       })
       .catch((error) => console.log(error));
-
-    getCocktails("Vodka", "ingredient");
   }, []);
 
   return (
     <AppContext.Provider
       value={{
+        isRandomCocktail,
         isError,
         isLoading,
         showResults,
@@ -283,7 +309,9 @@ export const AppProvider: React.FC = ({ children }) => {
         currentSearch,
         getCocktails,
         getCocktailRecipe,
+        getRandomCocktail,
         backToResults,
+        backToTop,
       }}
     >
       {children}

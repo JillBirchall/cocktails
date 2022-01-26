@@ -1,0 +1,46 @@
+@use "../custom" as *;
+
+.home {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position-x: center;
+
+  h1 {
+    font-size: 24px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 48px;
+    }
+  }
+
+  h2 {
+    font-size: 18px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    font-size: 16px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 24px;
+    }
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .search-card {
+    width: 90%;
+    opacity: 0.8;
+
+    @include media-breakpoint-up(md) {
+      width: 70%;
+    }
+  }
+}

@@ -14,9 +14,10 @@ export const SearchBox: React.FC = () => {
   }
 
   return (
-    <form className="d-flex search-box">
+    <form className="row search-box align-items-center mt-5">
+      <p className="text-light mb-0 col-12 col-md-6">Search for a cocktail:</p>
       <input
-        className="form-control rounded-pill"
+        className="form-control rounded-pill col-9 col-md-5"
         type="search"
         placeholder="Cocktail Name"
         aria-label="Search"
@@ -24,7 +25,7 @@ export const SearchBox: React.FC = () => {
         onChange={(e) => setSearchQuery(e.target.value)}
       />
       <button
-        className="btn btn-primary search-btn"
+        className="btn btn-primary search-btn col-3 col-md-1"
         type="submit"
         onClick={(e) => handleClick(e)}
       >
