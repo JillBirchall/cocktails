@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SearchBtn } from "./SearchBtn";
 
 interface IProps {
@@ -11,12 +11,18 @@ interface IProps {
 export const SelectBox: React.FC<IProps> = ({ labelText, title, options }) => {
   const { getCocktails, isLoading } = useGlobalContext();
   const [option, setOption] = useState("");
+  const [isSearchInProgress, setIsSearchInProgress] = useState(false);
 
   const searchForCocktails = () => {
     if (option === "") return;
+    setIsSearchInProgress(true);
     getCocktails(option, title.toLowerCase());
     setOption("");
   };
+
+  useEffect(() => {
+    if (!isLoading) setIsSearchInProgress(false);
+  }, [isLoading]);
 
   return (
     <div className="select-box row mt-3">
@@ -41,7 +47,11 @@ export const SelectBox: React.FC<IProps> = ({ labelText, title, options }) => {
           );
         })}
       </select>
-      <SearchBtn getSearchResults={searchForCocktails} />
+      <SearchBtn
+        btnLabel={`Search for selected ${title}`}
+        getSearchResults={searchForCocktails}
+        isSearchInProgress={isSearchInProgress}
+      />
     </div>
   );
 };

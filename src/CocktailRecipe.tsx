@@ -4,14 +4,18 @@ import { OutlineBtn } from "./components/OutlineBtn";
 import { useGlobalContext } from "./context";
 
 export const CocktailRecipe: React.FC = () => {
-  const { currentCocktail, backToResults, isRandomCocktail, backToTop } =
-    useGlobalContext();
+  const {
+    currentCocktail,
+    backToResults,
+    isRandomCocktail,
+    backToTop,
+    isLoading,
+  } = useGlobalContext();
   const cocktailRecipeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     cocktailRecipeRef.current?.scrollIntoView({
       behavior: "smooth",
-      block: "center",
     });
   }, [currentCocktail]);
 

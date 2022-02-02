@@ -1,9 +1,9 @@
 @use "custom";
 @use "components/main";
-@use "components/navbar";
+@use "components/searchBox";
 @use "components/home";
+@use "components/loader";
 @use "components/selectBox";
-@use "components/dropdown-menu";
 @use "components/card";
 @use "components/recipe";
 @use "components/footer";

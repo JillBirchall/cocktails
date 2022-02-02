@@ -11190,6 +11190,10 @@ textarea.form-control-lg {
   }
 }
 
+.loader-container {
+  min-height: 100vh;
+}
+
 .select-box label {
   font-size: 16px;
 }
@@ -11204,60 +11208,6 @@ textarea.form-control-lg {
 @media (min-width: 768px) {
   .select-box select {
     width: 250px;
-  }
-}
-
-.nav-dropdown .nav-link {
-  border: none;
-  background-color: #9100ff;
-}
-@media (min-width: 992px) {
-  .nav-dropdown .nav-link {
-    font-size: 1.2rem;
-  }
-}
-.nav-dropdown .dropdown-menu {
-  max-height: 300px;
-  overflow-y: auto;
-}
-@media (min-width: 992px) {
-  .nav-dropdown .dropdown-menu {
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    margin: 0 10px;
-    background-color: #9100ff;
-    max-height: initial;
-    overflow-y: initial;
-  }
-  .nav-dropdown .dropdown-menu .mega-menu {
-    margin: 10px;
-  }
-}
-.nav-dropdown .dropdown-menu ul {
-  padding: 0;
-  width: 100%;
-}
-.nav-dropdown .dropdown-menu ul li {
-  list-style: none;
-  width: 100%;
-}
-@media (min-width: 576px) {
-  .nav-dropdown .dropdown-menu ul li {
-    width: 50%;
-  }
-}
-@media (min-width: 992px) {
-  .nav-dropdown .dropdown-menu ul li {
-    width: auto;
-  }
-  .nav-dropdown .dropdown-menu ul li button {
-    color: white;
-  }
-  .nav-dropdown .dropdown-menu ul li button:hover {
-    color: #9100ff;
   }
 }
 

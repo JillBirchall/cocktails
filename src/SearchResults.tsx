@@ -10,13 +10,15 @@ export const SearchResults: React.FC = () => {
   useEffect(() => {
     searchResultsRef.current?.scrollIntoView({
       behavior: "smooth",
-      block: "center",
     });
   }, []);
 
   return (
     <div className="container py-5 cocktail-results">
-      <h1 className="text-center text-uppercase my-4" ref={searchResultsRef}>
+      <h1
+        className="text-center text-uppercase my-4 pt-3"
+        ref={searchResultsRef}
+      >
         {currentSearch ? currentSearch + " cocktails" : "Cocktails"}
       </h1>
       {cocktails.length === 0 && (

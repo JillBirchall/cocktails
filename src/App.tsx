@@ -7,15 +7,15 @@ import { Footer } from "./Footer";
 import { useGlobalContext } from "./context";
 
 function App() {
-  const { isError, isLoading, displayCocktail, showResults } =
+  const { isError, displayCocktail, showResults, isLoading } =
     useGlobalContext();
 
   return (
     <div className="main-container">
-      {/* {isLoading && <Loader />} */}
       {isError && <ErrorPage />}
       {!isError && <Home />}
-      {!isError && showResults && <SearchResults />}
+      {isLoading && <Loader />}
+      {!isError && !isLoading && showResults && <SearchResults />}
       {!isError && displayCocktail && <CocktailRecipe />}
       <Footer />
     </div>
