@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 import { SearchBtn } from "./SearchBtn";
 
 export const SearchBox: React.FC = () => {

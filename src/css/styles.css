@@ -11125,7 +11125,7 @@ textarea.form-control-lg {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-bottom: 70px;
+  margin-bottom: 70px;
 }
 @media (min-width: 768px) {
   .main-container {

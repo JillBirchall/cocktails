@@ -1,8 +1,8 @@
 import React from "react";
 import background from "./images/background.jpg";
 import Cocktail from "./images/cocktail-small.png";
-import { SearchBox } from "./SearchBox";
-import { SelectBox } from "./SelectBox";
+import { SearchBox } from "./components/SearchBox";
+import { SelectBox } from "./components/SelectBox";
 import { useGlobalContext } from "./context";
 
 export const Home: React.FC = () => {
@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
       style={{ backgroundImage: `url(${background})` }}
       id="home"
     >
-      <div className="d-flex justify-content-center pt-5">
+      <div className="d-flex justify-content-center pt-2">
         <h1 className="text-light fw-bold">Cocktail Quest</h1>
         <img
           className="logo"

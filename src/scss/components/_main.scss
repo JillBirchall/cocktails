@@ -6,7 +6,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-bottom: $footer-height;
+  margin-bottom: $footer-height;
 
   @include media-breakpoint-up(md) {
     margin-bottom: $footer-height-md;

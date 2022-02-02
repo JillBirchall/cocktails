@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchBox } from "./SearchBox";
+import { SearchBox } from "./components/SearchBox";
 import { DropdownMenu } from "./DropdownMenu";
 import { useGlobalContext } from "./context";
 import cocktail from "./images/cocktail-small.png";

@@ -1,5 +1,5 @@
 import { useGlobalContext } from "./context";
-import { OutlineBtn } from "./OutlineBtn";
+import { OutlineBtn } from "./components/OutlineBtn";
 
 export const ErrorPage = () => {
   const { resetError } = useGlobalContext();

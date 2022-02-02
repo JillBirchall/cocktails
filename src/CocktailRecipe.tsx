@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Dot } from "react-bootstrap-icons";
-import { OutlineBtn } from "./OutlineBtn";
+import { OutlineBtn } from "./components/OutlineBtn";
 import { useGlobalContext } from "./context";
 
 export const CocktailRecipe: React.FC = () => {

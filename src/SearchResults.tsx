@@ -1,5 +1,5 @@
 import { CocktailCard } from "./CocktailCard";
-import { OutlineBtn } from "./OutlineBtn";
+import { OutlineBtn } from "./components/OutlineBtn";
 import { useGlobalContext } from "./context";
 import { useEffect, useRef } from "react";
 
