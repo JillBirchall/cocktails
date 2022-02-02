@@ -12,20 +12,4 @@
       width: 250px;
     }
   }
-
-  .search-btn {
-    border: none;
-
-    .icon {
-      font-size: 1.5rem;
-    }
-
-    &:hover {
-      background-color: $primary;
-
-      .icon {
-        color: $secondary;
-      }
-    }
-  }
 }
