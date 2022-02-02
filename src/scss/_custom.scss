@@ -16,4 +16,8 @@ $primary-font: "Quicksand", sans-serif;
 //Font Overrides
 $font-family-sans-serif: $primary-font;
 
+//My variables
+$footer-height: 70px;
+$footer-height-md: 30px;
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

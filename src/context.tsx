@@ -85,6 +85,7 @@ interface IAppContext {
   getRandomCocktail(): void;
   backToResults(): void;
   backToTop(): void;
+  resetError(): void;
 }
 
 export const AppContext = React.createContext<IAppContext>({} as IAppContext);
@@ -294,6 +295,8 @@ export const AppProvider: React.FC = ({ children }) => {
       .catch((error) => console.log(error));
   }, []);
 
+  const resetError = () => setIsError(false);
+
   return (
     <AppContext.Provider
       value={{
@@ -312,6 +315,7 @@ export const AppProvider: React.FC = ({ children }) => {
         getRandomCocktail,
         backToResults,
         backToTop,
+        resetError,
       }}
     >
       {children}

@@ -1,4 +1,6 @@
 import { useGlobalContext } from "./context";
+import { useState } from "react";
+import { SearchBtn } from "./SearchBtn";
 
 interface IProps {
   labelText: string;
@@ -8,13 +10,12 @@ interface IProps {
 
 export const SelectBox: React.FC<IProps> = ({ labelText, title, options }) => {
   const { getCocktails, isLoading } = useGlobalContext();
+  const [option, setOption] = useState("");
 
-  const selectOption = (element: HTMLSelectElement) => {
-    if (
-      element.value === `Select ${title === "Ingredient" ? "an" : "a"} ${title}`
-    )
-      return;
-    getCocktails(element.value, title.toLowerCase());
+  const searchForCocktails = () => {
+    if (option === "") return;
+    getCocktails(option, title.toLowerCase());
+    setOption("");
   };
 
   return (
@@ -26,9 +27,10 @@ export const SelectBox: React.FC<IProps> = ({ labelText, title, options }) => {
         className="form-select col-md-6"
         name={title}
         id={title}
-        onChange={(e) => selectOption(e.target)}
+        value={option}
+        onChange={(e) => setOption(e.target.value)}
       >
-        <option selected>
+        <option selected value="">
           Select {title === "Ingredient" ? "an" : "a"} {title}
         </option>
         {options.map((option, index) => {
@@ -39,6 +41,7 @@ export const SelectBox: React.FC<IProps> = ({ labelText, title, options }) => {
           );
         })}
       </select>
+      <SearchBtn getSearchResults={searchForCocktails} />
     </div>
   );
 };

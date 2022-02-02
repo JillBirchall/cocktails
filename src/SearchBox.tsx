@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Search } from "react-bootstrap-icons";
 import { useGlobalContext } from "./context";
+import { SearchBtn } from "./SearchBtn";
 
 export const SearchBox: React.FC = () => {
   const { getCocktails } = useGlobalContext();
 
   const [searchQuery, setSearchQuery] = useState("");
 
-  function handleClick(e: React.MouseEvent) {
-    e.preventDefault();
+  function getSearchResults() {
+    if (searchQuery.trim() === "") return;
     getCocktails(searchQuery, "name");
     setSearchQuery("");
   }
@@ -24,13 +24,7 @@ export const SearchBox: React.FC = () => {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <button
-        className="btn btn-primary search-btn col-3 col-md-1"
-        type="submit"
-        onClick={(e) => handleClick(e)}
-      >
-        <Search className="icon" />
-      </button>
+      <SearchBtn getSearchResults={getSearchResults} />
     </form>
   );
 };

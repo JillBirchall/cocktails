@@ -11123,6 +11123,14 @@ textarea.form-control-lg {
   min-height: 100vh;
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 70px;
+}
+@media (min-width: 768px) {
+  .main-container {
+    margin-bottom: 30px;
+  }
 }
 
 .search-box p {
@@ -11136,18 +11144,6 @@ textarea.form-control-lg {
   .search-box input {
     width: 250px;
   }
-}
-.search-box .search-btn {
-  border: none;
-}
-.search-box .search-btn .icon {
-  font-size: 1.5rem;
-}
-.search-box .search-btn:hover {
-  background-color: #9100ff;
-}
-.search-box .search-btn:hover .icon {
-  color: #f700ff;
 }
 
 .home {
@@ -11297,7 +11293,7 @@ textarea.form-control-lg {
 }
 
 .cocktail-recipe {
-  height: 100vh;
+  min-height: 100vh;
 }
 @media (min-width: 576px) {
   .cocktail-recipe .back-btn {
@@ -11337,15 +11333,26 @@ textarea.form-control-lg {
 
 footer {
   font-size: 0.8rem;
-  position: absolute;
   width: 100%;
-  bottom: 0;
   height: 70px;
 }
 @media (min-width: 768px) {
   footer {
     height: 30px;
   }
+}
+
+.search-btn {
+  border: none;
+}
+.search-btn .icon {
+  font-size: 1.5rem;
+}
+.search-btn:hover {
+  background-color: #9100ff;
+}
+.search-btn:hover .icon {
+  color: #f700ff;
 }
 
 /*# sourceMappingURL=styles.css.map */

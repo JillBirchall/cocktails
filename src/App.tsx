@@ -13,12 +13,11 @@ function App() {
 
   return (
     <div className="main-container">
-      <Home />
-      {/* <NavBar /> */}
-      {isLoading && <Loader />}
-      {showResults && <SearchResults />}
+      {/* {isLoading && <Loader />} */}
       {isError && <ErrorPage />}
-      {displayCocktail && <CocktailRecipe />}
+      {!isError && <Home />}
+      {!isError && showResults && <SearchResults />}
+      {!isError && displayCocktail && <CocktailRecipe />}
       <Footer />
     </div>
   );

@@ -1,5 +1,5 @@
 import { CocktailCard } from "./CocktailCard";
-import { BackToTopBtn } from "./BackToTopBtn";
+import { OutlineBtn } from "./OutlineBtn";
 import { useGlobalContext } from "./context";
 import { useEffect, useRef } from "react";
 
@@ -34,7 +34,9 @@ export const SearchResults: React.FC = () => {
           );
         })}
       </div>
-      <BackToTopBtn />
+      <div className="d-flex justify-content-center my-3">
+        <OutlineBtn btnText="Back to Search" handleClick={backToTop} />
+      </div>
     </div>
   );
 };

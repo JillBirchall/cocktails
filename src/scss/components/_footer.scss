@@ -2,12 +2,10 @@
 
 footer {
   font-size: 0.8rem;
-  position: absolute;
   width: 100%;
-  bottom: 0;
-  height: 70px;
+  height: $footer-height;
 
   @include media-breakpoint-up(md) {
-    height: 30px;
+    height: $footer-height-md;
   }
 }
