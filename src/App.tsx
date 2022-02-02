@@ -14,8 +14,7 @@ function App() {
     <div className="main-container">
       {isError && <ErrorPage />}
       {!isError && <Home />}
-      {isLoading && <Loader />}
-      {!isError && !isLoading && showResults && <SearchResults />}
+      {!isError && showResults && <SearchResults />}
       {!isError && displayCocktail && <CocktailRecipe />}
       <Footer />
     </div>
