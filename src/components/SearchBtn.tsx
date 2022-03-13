@@ -41,6 +41,7 @@ export const SearchBtn: React.FC<IProps> = ({
         type="submit"
         onClick={(e) => handleClick(e)}
         aria-label={btnLabel}
+        disabled={isLoading ? true : false}
       >
         <Search className="icon" />
       </button>

@@ -6,7 +6,8 @@ import { SelectBox } from "./components/SelectBox";
 import { useGlobalContext } from "./context";
 
 export const Home: React.FC = () => {
-  const { ingredients, categories, getRandomCocktail } = useGlobalContext();
+  const { ingredients, categories, getRandomCocktail, isLoading } =
+    useGlobalContext();
 
   return (
     <section
@@ -44,6 +45,7 @@ export const Home: React.FC = () => {
       <button
         className="btn rounded-pill bg-secondary text-light px-3 py-1 border-0"
         onClick={getRandomCocktail}
+        disabled={isLoading ? true : false}
       >
         Surprise Me!
       </button>
